@@ -59,23 +59,23 @@ createGrid.js
 
 **What Each File Does**
 
-index.html — the main page structure
+**index.html** — the main page structure
 
-styles.css — all the styling and responsive layout
+**styles.css** — all the styling and responsive layout
 
-src/index.js — starts the app
+**src/index.js** — starts the app
 
-src/data.js — all the podcast, genre, and season data
+**src/data.js** — all the podcast, genre, and season data
 
-src/utils/DateUtils.js — formats dates into readable strings
+**src/utils/DateUtils.js** — formats dates into readable strings
 
-src/utils/GenreService.js — converts genre IDs into genre names
+**src/utils/GenreService.js** — converts genre IDs into genre names
 
-src/components/createPodcastCard.js — builds each podcast card
+**src/components/createPodcastCard.js** — builds each podcast card
 
-src/components/createModal.js — controls the popup that shows podcast details
+**src/components/createModal.js** — controls the popup that shows podcast details
 
-src/views/createGrid.js — renders the grid and handles filtering and sorting
+**src/views/createGrid.js** — renders the grid and handles filtering and sorting
 
 **Author**
 
