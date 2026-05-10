@@ -1,1 +1,707 @@
+/* ============================================================
+   CSS CUSTOM PROPERTIES
+   ============================================================ */
+:root {
+  --color-bg: #f5f5f0;
+  --color-surface: #ffffff;
+  --color-surface-hover: #fafaf8;
+  --color-border: #e8e8e4;
+  --color-nav-bg: #1a1a2e;
+  --color-nav-text: #f0f0f0;
+  --color-accent: #4361ee;
+  --color-accent-light: #eef0fd;
+  --color-accent-dark: #2a45cc;
+  --color-text-primary: #111118;
+  --color-text-secondary: #555560;
+  --color-text-muted: #8888a0;
+  --color-tag-bg: #f0f0f8;
+  --color-tag-text: #333348;
+  --color-season-border: #e8e8f0;
+  --color-shadow: rgba(17, 17, 24, 0.08);
+  --color-shadow-strong: rgba(17, 17, 24, 0.16);
+  --color-overlay: rgba(10, 10, 20, 0.6);
 
+  --font-display: "Syne", sans-serif;
+  --font-body: "DM Sans", sans-serif;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+
+  --shadow-card: 0 2px 8px var(--color-shadow);
+  --shadow-card-hover: 0 8px 28px var(--color-shadow-strong);
+  --shadow-modal: 0 24px 64px rgba(10, 10, 20, 0.28);
+
+  --transition-fast: 150ms ease;
+  --transition-base: 240ms ease;
+  --transition-slow: 380ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  --navbar-height: 60px;
+}
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+  background: none;
+}
+
+select {
+  font-family: inherit;
+}
+
+/* ============================================================
+   NAVBAR
+   ============================================================ */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--navbar-height);
+  padding: 0 24px;
+  background-color: var(--color-nav-bg);
+  color: var(--color-nav-text);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.navbar__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.navbar__icon {
+  width: 22px;
+  height: 22px;
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+.navbar__title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--color-nav-text);
+}
+
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navbar__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: rgba(240, 240, 240, 0.8);
+  transition: background-color var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.navbar__btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.navbar__btn:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: var(--color-nav-text);
+}
+
+.navbar__btn--avatar svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* ============================================================
+   MAIN CONTENT
+   ============================================================ */
+.main {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 28px 24px 64px;
+}
+
+/* ============================================================
+   FILTER BAR
+   ============================================================ */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.filter-bar__label {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}
+
+.filter-bar__controls {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.select-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 8px 36px 8px 14px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  cursor: pointer;
+  transition: border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+  min-width: 150px;
+}
+
+.select:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.15);
+}
+
+.select:hover {
+  border-color: #bbbbd0;
+}
+
+.select-wrapper__chevron {
+  position: absolute;
+  right: 10px;
+  width: 16px;
+  height: 16px;
+  color: var(--color-text-muted);
+  pointer-events: none;
+}
+
+/* ============================================================
+   PODCAST GRID
+   ============================================================ */
+.podcast-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 1024px) {
+  .podcast-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .podcast-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .main {
+    padding: 20px 16px 48px;
+  }
+
+  .filter-bar {
+    margin-bottom: 20px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .podcast-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ============================================================
+   PODCAST CARD
+   ============================================================ */
+.podcast-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform var(--transition-base),
+    box-shadow var(--transition-base), border-color var(--transition-base);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  animation: cardFadeIn 0.4s ease both;
+}
+
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.podcast-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: #d0d0e8;
+}
+
+.podcast-card:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Card cover image */
+.podcast-card__cover {
+  position: relative;
+  width: 100%;
+  padding-top: 100%; /* 1:1 aspect ratio */
+  background-color: #c8c8d8;
+  overflow: hidden;
+}
+
+.podcast-card__cover img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.podcast-card:hover .podcast-card__cover img {
+  transform: scale(1.04);
+}
+
+/* Card body */
+.podcast-card__body {
+  padding: 14px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.podcast-card__title {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.podcast-card__seasons {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  font-weight: 400;
+}
+
+.podcast-card__seasons svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  color: var(--color-text-muted);
+}
+
+/* Genre tags */
+.podcast-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 2px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 3px 9px;
+  border-radius: 20px;
+  background-color: var(--color-tag-bg);
+  color: var(--color-tag-text);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+/* Updated date */
+.podcast-card__updated {
+  font-size: 0.76rem;
+  color: var(--color-text-muted);
+  margin-top: auto;
+  padding-top: 4px;
+}
+
+/* ============================================================
+   MODAL
+   ============================================================ */
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 40px 16px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  overflow-y: auto;
+}
+
+.modal.is-open {
+  pointer-events: all;
+  opacity: 1;
+}
+
+.modal__backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: var(--color-overlay);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: -1;
+  cursor: pointer;
+}
+
+.modal__container {
+  width: 100%;
+  max-width: 680px;
+  margin: auto;
+}
+
+.modal__content {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-modal);
+  transform: translateY(24px) scale(0.97);
+  transition: transform var(--transition-slow);
+  position: relative;
+}
+
+.modal.is-open .modal__content {
+  transform: translateY(0) scale(1);
+}
+
+/* Modal header */
+.modal__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 24px 24px 20px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.modal__title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--color-text-primary);
+  line-height: 1.25;
+  padding-right: 16px;
+}
+
+.modal__close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  color: var(--color-text-muted);
+  background-color: var(--color-tag-bg);
+  transition: background-color var(--transition-fast),
+    color var(--transition-fast);
+  margin-top: -2px;
+}
+
+.modal__close:hover {
+  background-color: #e0e0f0;
+  color: var(--color-text-primary);
+}
+
+.modal__close:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.modal__close svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Modal body */
+.modal__body {
+  padding: 24px;
+}
+
+/* Modal top section: image + info */
+.modal__top {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 520px) {
+  .modal__top {
+    flex-direction: column;
+  }
+}
+
+.modal__image-wrap {
+  flex-shrink: 0;
+  width: 180px;
+  height: 180px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background-color: #c8c8d8;
+}
+
+@media (max-width: 520px) {
+  .modal__image-wrap {
+    width: 100%;
+    height: 220px;
+  }
+}
+
+.modal__image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal__info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Description */
+.modal__section-label {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 6px;
+}
+
+.modal__description {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+}
+
+/* Genres in modal */
+.modal__genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.modal__genres .tag {
+  font-size: 0.78rem;
+  padding: 4px 11px;
+  border: 1px solid #ddddf0;
+}
+
+/* Updated date in modal */
+.modal__updated {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+}
+
+.modal__updated svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+/* Divider */
+.modal__divider {
+  height: 1px;
+  background-color: var(--color-border);
+  margin-bottom: 24px;
+}
+
+/* Seasons section */
+.modal__seasons-heading {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 14px;
+}
+
+.modal__seasons-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  list-style: none;
+}
+
+.season-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border: 1px solid var(--color-season-border);
+  border-radius: var(--radius-md);
+  background-color: #fafafa;
+  transition: background-color var(--transition-fast);
+}
+
+.season-item:hover {
+  background-color: var(--color-accent-light);
+  border-color: #c8d0f8;
+}
+
+.season-item__title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.season-item__episodes {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  margin-left: 12px;
+}
+
+/* ============================================================
+   EMPTY STATE
+   ============================================================ */
+.empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 64px 24px;
+  color: var(--color-text-muted);
+}
+
+.empty-state__icon {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+}
+
+.empty-state__text {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* ============================================================
+   ANIMATION STAGGER HELPERS
+   ============================================================ */
+.podcast-card:nth-child(1)  { animation-delay: 0.03s; }
+.podcast-card:nth-child(2)  { animation-delay: 0.06s; }
+.podcast-card:nth-child(3)  { animation-delay: 0.09s; }
+.podcast-card:nth-child(4)  { animation-delay: 0.12s; }
+.podcast-card:nth-child(5)  { animation-delay: 0.15s; }
+.podcast-card:nth-child(6)  { animation-delay: 0.18s; }
+.podcast-card:nth-child(7)  { animation-delay: 0.21s; }
+.podcast-card:nth-child(8)  { animation-delay: 0.24s; }
+.podcast-card:nth-child(n+9){ animation-delay: 0.27s; }
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+.modal {
+  scrollbar-width: thin;
+  scrollbar-color: #c8c8d8 transparent;
+}
+
+.modal::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.modal::-webkit-scrollbar-thumb {
+  background-color: #c8c8d8;
+  border-radius: 10px;
+}
+
+/* ============================================================
+   FOCUS & ACCESSIBILITY
+   ============================================================ */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
