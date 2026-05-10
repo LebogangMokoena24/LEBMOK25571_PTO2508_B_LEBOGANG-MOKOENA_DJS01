@@ -1,1 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PodcastApp</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+      <div class="navbar__brand">
+        <svg
+          class="navbar__icon"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"
+          />
+        </svg>
+        <span class="navbar__title">PodcastApp</span>
+      </div>
+      <div class="navbar__actions">
+        <button
+          class="navbar__btn"
+          aria-label="Search podcasts"
+          title="Search"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            aria-hidden="true"
+          >
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+        </button>
+        <button class="navbar__btn navbar__btn--avatar" aria-label="User profile">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"
+            />
+          </svg>
+        </button>
+      </div>
+    </nav>
 
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="main" id="main-content">
+      <!-- Filter bar -->
+      <div class="filter-bar" role="search" aria-label="Filter and sort podcasts">
+        <span class="filter-bar__label">Filter by:</span>
+        <div class="filter-bar__controls">
+          <div class="select-wrapper">
+            <select
+              id="genreFilter"
+              class="select"
+              aria-label="Filter by genre"
+            >
+              <option value="all">All Genres</option>
+            </select>
+            <svg
+              class="select-wrapper__chevron"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              aria-hidden="true"
+            >
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </div>
+
+          <div class="select-wrapper">
+            <select
+              id="sortFilter"
+              class="select"
+              aria-label="Sort podcasts"
+            >
+              <option value="updated">Recently Updated</option>
+              <option value="popular">Most Popular</option>
+              <option value="newest">Newest</option>
+            </select>
+            <svg
+              class="select-wrapper__chevron"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              aria-hidden="true"
+            >
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Podcast grid -->
+      <div
+        id="podcastGrid"
+        class="podcast-grid"
+        role="list"
+        aria-label="Podcast shows"
+      ></div>
+    </main>
+
+    <!-- ===== MODAL ===== -->
+    <div
+      id="podcastModal"
+      class="modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalTitle"
+      aria-hidden="true"
+    >
+      <div class="modal__backdrop" id="modalBackdrop"></div>
+      <div class="modal__container">
+        <div class="modal__content" id="modalContent">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="src/index.js"></script>
+  </body>
+</html>
