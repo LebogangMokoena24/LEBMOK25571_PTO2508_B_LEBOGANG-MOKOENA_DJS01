@@ -20,33 +20,54 @@ Right-click index.html and select Open with Live Server
 **Folder Structure**
 
 Main folder: DJS01
+
 Inside DJS01 create these 2 files:
 
 index.html
+
 styles.css
 
 Then create a folder called src inside DJS01.
+
 Inside src create these 2 files:
 
 index.js
+
 data.js
 
 Inside src create a folder called components.
+
 Inside components create these 2 files:
 
 createPodcastCard.js
+
 createModal.js
 
 Inside src create a folder called utils.
+
 Inside utils create these 2 files:
 
 DateUtils.js
+
 GenreService.js
 
 Inside src create a folder called views.
+
 Inside views create this 1 file:
 
 createGrid.js
+
+**What Each File Does**
+
+index.html — the main page structure
+styles.css — all the styling and responsive layout
+src/index.js — starts the app
+src/data.js — all the podcast, genre, and season data
+src/utils/DateUtils.js — formats dates into readable strings
+src/utils/GenreService.js — converts genre IDs into genre names
+src/components/createPodcastCard.js — builds each podcast card
+src/components/createModal.js — controls the popup that shows podcast details
+src/views/createGrid.js — renders the grid and handles filtering and sorting
 
 **Author**
 
